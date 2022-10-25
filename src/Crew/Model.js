@@ -1,8 +1,13 @@
-class Model {
+import Crew from "./crew.js";
+
+export default class Model {
   constructor() {
-    this.index = 1;
+    this.index = 0;
+    this.member = [];
   }
-  addCrew(name) {
+  addMember(name) {
     const newCrew = new Crew(this.index, name);
+    this.member.push(name);
+    this.index++;
   }
 }

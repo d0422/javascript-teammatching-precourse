@@ -1,3 +1,4 @@
+import Controller from "./Controller.js";
 export default class View {
   constructor() {
     this.inner = `
@@ -12,7 +13,7 @@ export default class View {
       </div>
     </section>
     <section>
-      <h3>프론트엔드 크루 관리</h3>
+      <h3 id="crew-title">프론트엔드 크루 관리</h3>
       <form>
         <label>크루 이름</label>
         <input id="crew-name-input" type="text" />
@@ -20,7 +21,7 @@ export default class View {
       </form>
     </section>
     <section>
-      <h3>프론트엔드 크루 목록</h3>
+      <h3 id="crew-list">프론트엔드 크루 목록</h3>
       <table id="crew-table" border="1">
         <thead>
           <tr>
@@ -30,18 +31,12 @@ export default class View {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>준</td>
-            <td>
-              <button class="delete-crew-button">삭제</button>
-            </td>
-          </tr>
         </tbody>
       </table>
     </section>
   </main>`;
     this.app = document.querySelector("#app");
     this.app.insertAdjacentHTML("beforeend", this.inner);
+    this.controller = new Controller();
   }
 }
